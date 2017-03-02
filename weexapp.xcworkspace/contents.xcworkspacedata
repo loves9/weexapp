@@ -2,12 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:WeexClient/WeexClient.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WeexLibrary/WeexLibrary.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WeexClient/WeexClient.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

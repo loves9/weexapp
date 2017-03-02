@@ -9,5 +9,8 @@
 #import "WeexLibrary.h"
 
 @implementation WeexLibrary
-
++ (void)WeexInit
+{
+    NSLog(@"初始化");
+}
 @end

@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 #inhibit_all_warnings!
 
@@ -8,6 +9,8 @@ def common
     pod 'SocketRocket', '0.4.2'
     pod 'ATSDK-Weex', '0.0.1'
 end
+
+xcodeproj 'WeexClient/WeexClient.xcodeproj'
 
 target 'WeexClient' do
     common
