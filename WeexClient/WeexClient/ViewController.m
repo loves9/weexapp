@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "WeexLibrary/WeexLibrary.h"
+#import <WeexSDK/WeexSDK.h>
 
 @interface ViewController ()
 
