@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <WeexFrameworks/WeexFrameworks.h>
+#import "ViewController.h"
+#import "DemoDefine.h"
 
 @interface AppDelegate ()
 
@@ -17,9 +20,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [WeexManager WeexInit];
+    
+    self.window.rootViewController = [[[WeexManager wxr] alloc] initWithRootViewController:[self demoController]];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 
+- (UIViewController *)demoController
+{
+    UIViewController *demo = [[ViewController alloc] init];
+    
+#if DEBUG
+    //If you are debugging in device , please change the host to current IP of your computer.
+    ((ViewController *)demo).url = [NSURL URLWithString:HOME_URL];
+#else
+    ((ViewController *)demo).url = [NSURL URLWithString:BUNDLE_URL];
+#endif
+    
+#ifdef UITEST
+    ((ViewController *)demo).url = [NSURL URLWithString:UITEST_HOME_URL];
+#endif
+    
+    return demo;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

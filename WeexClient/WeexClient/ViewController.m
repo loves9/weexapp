@@ -7,11 +7,19 @@
 //
 
 #import "ViewController.h"
-#import "WeexLibrary/WeexLibrary.h"
-#import <WeexSDK/WeexSDK.h>
+#import <WeexFrameworks/WeexFrameworks.h>
+#import "DemoDefine.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) UIView *weexView;
 
+@property (nonatomic, strong) NSArray *refreshList;
+@property (nonatomic, strong) NSArray *refreshList1;
+@property (nonatomic, strong) NSArray *refresh;
+@property (nonatomic) NSInteger count;
+
+@property (nonatomic, assign) CGFloat weexHeight;
+@property (nonatomic, weak) id<UIScrollViewDelegate> originalDelegate;
 @end
 
 @implementation ViewController
@@ -19,10 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     
-    [WeexLibrary WeexInit];
+    Weex * we = [[Weex alloc] init];
+    
+    [we renderWithUrl:[NSURL URLWithString:HOME_URL] target:self];
+//    [we loadLocalBundle:[NSURL URLWithString:]];
 }
+
 
 
 @end

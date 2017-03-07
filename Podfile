@@ -3,9 +3,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 #inhibit_all_warnings!
 
-project 'WeexClient/WeexClient.xcodeproj'
+#project 'WeexClient/WeexClient.xcodeproj'
 
-#xcodeproj 'WeexLibrary/WeexLibrary.xcodeproj'
+project 'WeexFrameworks/WeexFrameworks.xcodeproj'
 
 
 def common
@@ -16,14 +16,14 @@ def common
     pod 'ATSDK-Weex', '0.0.1'
 end
 
-target 'WeexClient' do
-    common
-end
-
-target 'WeexClientUITests' do
-    common
-end
-
-#target 'WeexLibrary' do
+#target 'WeexClient' do
 #    common
 #end
+
+#target 'WeexClientUITests' do
+#    common
+#end
+
+target 'WeexFrameworks' do
+    common
+end

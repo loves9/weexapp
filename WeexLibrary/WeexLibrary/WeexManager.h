@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface WeexManager : NSObject
++ (void)WeexInit;
 
 @end
