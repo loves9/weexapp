@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WeexFrameworks/WeexFrameworks.h>
 
-@interface ViewController : UIViewController
-
-@property (nonatomic, strong) NSString *script;
-@property (nonatomic, strong) NSURL *url;
-
-//@property (nonatomic, strong) SRWebSocket *hotReloadSocket;
-@property (nonatomic, strong) NSString *source;
+@interface ViewController : WeexViewController
 @end
 

@@ -11,6 +11,7 @@
 
 @interface Weex ()
 @property (nonatomic, strong) WXSDKInstance *instance;
+
 @property (nonatomic, assign) CGFloat weexHeight;
 @property (nonatomic, strong) UIView *weexView;
 
@@ -22,7 +23,7 @@
 {
     self = [super init];
     if (self) {
-        
+//        self.controller = [UIViewController alloc];
     }
     return self;
 }
@@ -30,9 +31,13 @@
 - (void)dealloc
 {
     [_instance destroyInstance];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)initWithController:(UIViewController *)controler
+{
+//    _controller = [UIViewController alloc] initwit;
+}
 - (void)renderWithUrl:(NSURL *)url target:(UIViewController *)controller
 {
     CGFloat width = controller.view.frame.size.width;
@@ -42,6 +47,8 @@
     _instance.frame = CGRectMake(controller.view.frame.size.width-width, 0, width, 160);
     
     __weak typeof(self) weakSelf = controller;
+    __weak typeof(self) Self = self;
+
     _instance.onCreate = ^(UIView *view) {
                 [weakSelf.weexView removeFromSuperview];
                 weakSelf.weexView = view;
@@ -67,7 +74,7 @@
     
     _instance.renderFinish = ^(UIView *view) {
         WXLogDebug(@"%@", @"Render Finish...");
-        [weakSelf updateInstanceState:WeexInstanceAppear];
+        [Self updateInstanceState:WeexInstanceAppear];
     };
     
     _instance.updateFinish = ^(UIView *view) {

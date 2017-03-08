@@ -7,34 +7,67 @@
 //
 
 #import "ViewController.h"
-#import <WeexFrameworks/WeexFrameworks.h>
 #import "DemoDefine.h"
+#import "UIViewController+WXDemoNaviBar.h"
+
 
 @interface ViewController ()
-@property (nonatomic, strong) UIView *weexView;
 
-@property (nonatomic, strong) NSArray *refreshList;
-@property (nonatomic, strong) NSArray *refreshList1;
-@property (nonatomic, strong) NSArray *refresh;
-@property (nonatomic) NSInteger count;
-
-@property (nonatomic, assign) CGFloat weexHeight;
-@property (nonatomic, weak) id<UIScrollViewDelegate> originalDelegate;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    
-    Weex * we = [[Weex alloc] init];
-    
-    [we renderWithUrl:[NSURL URLWithString:HOME_URL] target:self];
-//    [we loadLocalBundle:[NSURL URLWithString:]];
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    [_instance fireGlobalEvent:WX_APPLICATION_DID_BECOME_ACTIVE params:nil];
+//    [self updateInstanceState:WeexInstanceAppear];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+//    [self updateInstanceState:WeexInstanceDisappear];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+//    [_we fireGlobalEvent:WX_APPLICATION_WILL_RESIGN_ACTIVE params:nil];
+}
+
+//TODO get height
+- (void)viewDidLayoutSubviews
+{
+//    _weexHeight = self.view.frame.size.height;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    [self setupNaviBar];
+    [self setupRightBarItem];
+    
+    [self renderWithUrl:nil];
+//    [we loadLocalBundle:[NSURL URLWithString:]];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRefreshInstance:) name:@"RefreshInstance" object:nil];
+}
+
+- (void)setupRightBarItem
+{
+    if ([self.url.scheme isEqualToString:@"http"]) {
+        [self loadRefreshCtl];
+    }
+}
+
+- (void)dealloc{
+//    [self.instance destroyInstance];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

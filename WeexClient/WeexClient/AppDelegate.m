@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "DemoDefine.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -33,17 +34,17 @@
 
 - (UIViewController *)demoController
 {
-    UIViewController *demo = [[ViewController alloc] init];
+    ViewController *demo = [[ViewController alloc] init];
     
 #if DEBUG
     //If you are debugging in device , please change the host to current IP of your computer.
-    ((ViewController *)demo).url = [NSURL URLWithString:HOME_URL];
+    demo.url = [NSURL URLWithString:HOME_URL];
 #else
-    ((ViewController *)demo).url = [NSURL URLWithString:BUNDLE_URL];
+    demo.url = [NSURL URLWithString:BUNDLE_URL];
 #endif
     
 #ifdef UITEST
-    ((ViewController *)demo).url = [NSURL URLWithString:UITEST_HOME_URL];
+    ((WeexViewController *)demo).url = [NSURL URLWithString:UITEST_HOME_URL];
 #endif
     
     return demo;

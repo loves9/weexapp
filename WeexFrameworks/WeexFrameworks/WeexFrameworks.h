@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WeexManager.h"
 #import "Weex.h"
-//#import <WeexSDK/WeexSDK.h>
+#import "WeexViewController.h"
+
 
 //#import <SRWebSocket.h>
 

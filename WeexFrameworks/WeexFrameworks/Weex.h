@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 @interface Weex : NSObject
+@property(nonatomic, strong) UIViewController * controller;
+
 - (void)renderWithUrl:(NSURL *)url target:(UIViewController *)controller;
 - (void)loadLocalBundle:(NSURL *)url;
 

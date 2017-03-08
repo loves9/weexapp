@@ -8,7 +8,8 @@
 
 #import "WXEventModule.h"
 #import <WeexSDK/WXBaseViewController.h>
-
+#import "Weex.h"
+#import "WeexViewController.h"
 @implementation WXEventModule
 
 @synthesize weexInstance;
@@ -25,10 +26,11 @@ WX_EXPORT_METHOD(@selector(openURL:))
         newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
     }
     
-//    UIViewController *controller = [[WXDemoViewController alloc] init];
-//    ((WXDemoViewController *)controller).url = [NSURL URLWithString:newURL];
-//    
-//    [[weexInstance.viewController navigationController] pushViewController:controller animated:YES];
+    
+    WeexViewController *controller = [[WeexViewController alloc] init];
+    controller.url = [NSURL URLWithString:newURL];
+
+    [[weexInstance.viewController navigationController] pushViewController:controller animated:YES];
 }
 
 @end
