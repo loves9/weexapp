@@ -126,7 +126,6 @@
     NSURL *URL = [self testURL: [self.url absoluteString]];
     
     NSString *randomURL = [NSString stringWithFormat:@"%@%@random=%d",URL.absoluteString,URL.query?@"&":@"?",arc4random()];
-    NSLog(@"%@", URL.absoluteString);
     [_instance renderWithURL:[NSURL URLWithString:randomURL] options:@{@"bundleUrl":URL.absoluteString} data:nil];
 }
 
@@ -148,7 +147,6 @@
 - (void)refreshWeex
 {
     [self renderWithUrl:nil];
-    //    [self loadLocalBundle:[NSURL URLWithString:BUNDLE_URL]];
 }
 
 #pragma mark - UIBarButtonItems

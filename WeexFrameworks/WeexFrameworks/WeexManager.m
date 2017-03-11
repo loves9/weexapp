@@ -14,6 +14,8 @@
 #import "WXImgLoaderDefaultImpl.h"
 #import "WXSyncTestModule.h"
 #import <ATSDK/ATManager.h>
+#import "WXLogModule.h"
+#import "WXHttpModule.h"
 
 @interface WeexManager ()
 
@@ -34,6 +36,12 @@
     [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
     [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
     [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
+    
+    [WXSDKEngine registerComponent:@"button" withClass:NSClassFromString(@"WXButton")];
+    [WXSDKEngine registerModule:@"log" withClass:[WXLogModule class]];
+    [WXSDKEngine registerModule:@"http" withClass:[WXHttpModule class]];
+
+
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];

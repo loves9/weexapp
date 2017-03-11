@@ -10,7 +10,7 @@
 #import "WeexManager.h"
 #import "Weex.h"
 #import "WeexViewController.h"
-
+//#import "CocoaLumberjack/CocoaLumberjack.h"
 
 //#import <SRWebSocket.h>
 

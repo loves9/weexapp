@@ -87,7 +87,6 @@
     NSURL *URL = [self testURL: [url absoluteString]];
     
     NSString *randomURL = [NSString stringWithFormat:@"%@%@random=%d",URL.absoluteString,URL.query?@"&":@"?",arc4random()];
-    NSLog(@"%@", URL.absoluteString);
     [_instance renderWithURL:[NSURL URLWithString:randomURL] options:@{@"bundleUrl":URL.absoluteString} data:nil];
 }
 
