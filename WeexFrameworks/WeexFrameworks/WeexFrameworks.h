@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "WeexManager.h"
-#import "Weex.h"
 #import "WeexViewController.h"
 //#import "CocoaLumberjack/CocoaLumberjack.h"
 

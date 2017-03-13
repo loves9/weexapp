@@ -16,6 +16,7 @@
 #import <ATSDK/ATManager.h>
 #import "WXLogModule.h"
 #import "WXHttpModule.h"
+#import "WXRouterModule.h"
 
 @interface WeexManager ()
 
@@ -40,6 +41,7 @@
     [WXSDKEngine registerComponent:@"button" withClass:NSClassFromString(@"WXButton")];
     [WXSDKEngine registerModule:@"log" withClass:[WXLogModule class]];
     [WXSDKEngine registerModule:@"http" withClass:[WXHttpModule class]];
+    [WXSDKEngine registerModule:@"router" withClass:[WXRouterModule class]];
 
 
     

@@ -7,9 +7,8 @@
  */
 
 #import "WXEventModule.h"
-#import <WeexSDK/WXBaseViewController.h>
-#import "Weex.h"
 #import "WeexViewController.h"
+
 @implementation WXEventModule
 
 @synthesize weexInstance;
